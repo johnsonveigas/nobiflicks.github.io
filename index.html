@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Video from Intent URL</title>
+</head>
+<body>
+    <video controls>
+        <source src="" type="video/mp4" id="videoSource">
+    </video>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var videoUrl = urlParams.get("video");
+
+            if (videoUrl) {
+                var videoSource = document.getElementById("videoSource");
+                videoSource.setAttribute("src", videoUrl);
+                videoSource.parentElement.load();
+            }
+        });
+    </script>
+</body>
+</html>
